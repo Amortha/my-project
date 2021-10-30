@@ -8,6 +8,7 @@ import Footer from './Component/Footer/Footer';
 import PlaceOrder from './Component/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import AuthProvider from './Context/AuthProvider';
+import ManageTour from './Component/ManageTour/ManageTour';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             <PrivateRoute path="/placeorder/:id">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
+            <Route path="/managetour">
+              <ManageTour></ManageTour>
+            </Route>
             <Route path="/login">
               <Login></Login>
             </Route>

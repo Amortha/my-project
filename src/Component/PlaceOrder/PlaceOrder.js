@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { Link, useParams } from 'react-router-dom';
 // import useFirebase from './../../hooks/hooks';
 
 const PlaceOrder = () => {
@@ -13,10 +13,20 @@ const PlaceOrder = () => {
             .then(data => setDetails(data))
     }, [])
     return (
-        <div>
-            <h1>i am from place order</h1>
-            <h3>thiis is :{id}</h3>
-            <h2>details{details.name}</h2>
+        <div className="booking mb-5">
+            <br /> <br />
+            <h3 className="fw-bolder"> {details?.name} Service IS BOOKED .  </h3>
+            <h3 className="fw-bolder">  Click 👇 to continue  </h3>
+            <Link to="/managetour">
+                <button className="btn btn-warning   mt-2 ms-3 mb-4 fw-bold p-3 rounded-pill">  Place Order ▶▶  </button>
+            </Link> <br />
+            <img className="w-25 rounded-3" src={details?.img} alt="" /> <br />
+            <Link to="/">
+                <button className="btn btn-warning mt-4 mb-4 fw-bold p-3 rounded-pill">◀◀ Go Back </button>
+            </Link>
+
+            <br />
+
         </div>
     );
 };
