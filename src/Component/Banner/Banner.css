@@ -1,0 +1,21 @@
+.banner-image {
+    background-image: url("https://cdn.pixabay.com/photo/2014/02/09/05/40/maldives-262516_960_720.jpg")
+    ,
+      linear-gradient(rgba(36, 35, 35, 0.87), rgb(54, 52, 52));
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+}
+
+.title-container {
+    position: relative;
+    top: 35%;
+}
+.title h1 {
+  font-size: 80px;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
