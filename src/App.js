@@ -9,6 +9,7 @@ import PlaceOrder from './Component/PlaceOrder/PlaceOrder';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import AuthProvider from './Context/AuthProvider';
 import ManageTour from './Component/ManageTour/ManageTour';
+import AddPackage from './Component/AddPackage/AddPackage';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
             </PrivateRoute>
             <Route path="/managetour">
               <ManageTour></ManageTour>
+            </Route>
+            <Route path="/addpackage">
+              <AddPackage></AddPackage>
             </Route>
             <Route path="/login">
               <Login></Login>

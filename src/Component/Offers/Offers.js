@@ -8,12 +8,13 @@ const Offers = (props) => {
             <div className="col">
                 <div className="card">
                     <img src={img} className="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">{name}</h5>
-                        <p class="card-text">{description}</p>
-                        <p class="card-text">{cost}</p>
+                    <div className="card-body">
+                        <h5 className="card-title fw-bolder">{name}</h5>
+                        <p className="card-text">{description}</p>
+                        <p className="card-text fw-bolder">Total Cost : {cost}</p>
+                        <p>Select : ✈   🚌   🚎</p>
                         <Link to={`/placeorder/${_id}`}>
-                            <button>Book now</button>
+                            <button className="btn btn-warning rounded px-5 ">Book now</button>
                         </Link>
                     </div>
                 </div>
