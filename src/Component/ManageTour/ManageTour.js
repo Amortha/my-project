@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Form } from 'react-bootstrap';
 import useAuth from './../../hooks/useAuth';
 
 const ManageTour = () => {
@@ -30,12 +30,31 @@ const ManageTour = () => {
     }
     return (
         <div className="m-5 mb-5" >
-            <div className="row">
+            <div className="row g-4">
                 <div className=" col-md-4 col-sm-12">
                     <h1>User Information</h1>
-                    <input type="text" value={user?.displayName} />
-                    <br />
-                    <input type="text" value={user?.email} />
+                    <Form>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="name" value={user?.displayName} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" value={user?.email} rows={3} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label>Package Name</Form.Label>
+                            <Form.Control type="name" rows={3} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label>Total Guest</Form.Label>
+                            <Form.Control type="number" rows={3} />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label>Select Your date</Form.Label>
+                            <Form.Control type="date" rows={3} />
+                        </Form.Group>
+                    </Form>
                 </div>
                 <div className=" col-md-8 col-sm-12">
                     <h2>My Tour packag </h2>

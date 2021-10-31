@@ -10,6 +10,7 @@ import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import AuthProvider from './Context/AuthProvider';
 import ManageTour from './Component/ManageTour/ManageTour';
 import AddPackage from './Component/AddPackage/AddPackage';
+import NotFound from './Component/NotFound/NotFound';
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
             </Route>
             <Route path="/signup">
               <SignUp></SignUp>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
           <Footer></Footer>
