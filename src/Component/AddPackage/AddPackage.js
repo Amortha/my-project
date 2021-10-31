@@ -10,7 +10,7 @@ const AddPackage = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('http://localhost:5000/services', data)
+        axios.post('https://evening-headland-28717.herokuapp.com/services', data)
             .then(response => {
                 if (response.data.insertedId) {
                     alert('Your booking is successfully add');

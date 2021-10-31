@@ -14,7 +14,7 @@ const ManageTour = () => {
     const onSubmit = data => {
         console.log(data);
 
-        axios.post('http://localhost:5000/orders', data)
+        axios.post('https://evening-headland-28717.herokuapp.com/orders', data)
             .then(response => {
                 if (response.data.insertedId) {
                     alert('You have');
@@ -25,7 +25,7 @@ const ManageTour = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/booking`)
+        fetch(`https://evening-headland-28717.herokuapp.com/booking`)
             .then(res => res.json())
             .then(data => setBooking(data))
     }, [])
