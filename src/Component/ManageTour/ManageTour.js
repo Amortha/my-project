@@ -1,84 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { Card, Form } from 'react-bootstrap';
-import useAuth from './../../hooks/useAuth';
+import React from 'react';
+import axios from 'axios';
+import { useForm } from "react-hook-form";
+import './ManageTour.css';
+// import useAuth from './../../hooks/useAuth';
+import { useState, useEffect } from 'react';
 
 const ManageTour = () => {
-    const { user } = useAuth();
-    const [tours, setTours] = useState([]);
+    // const { user } = useAuth();
+    const [booking, setBooking] = useState([]);
 
-    useEffect(() => {
-        fetch(`https://evening-headland-28717.herokuapp.com/services`)
-            .then(res => res.json())
-            .then(data => setTours(data))
-    }, []);
+    const { register, handleSubmit, reset } = useForm();
 
-    const handleDelete = id => {
-        const url = `https://evening-headland-28717.herokuapp.com/services/${id}`;
-        fetch(url, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.deletedCount) {
-                    const remaining = tours.filter(tour => tour._id !== id);
-                    alert('Your tour package is successfully deleted');
-                    setTours(remaining);
+    const onSubmit = data => {
+        console.log(data);
+
+        axios.post('http://localhost:5000/orders', data)
+            .then(response => {
+                if (response.data.insertedId) {
+                    alert('You have');
+                    reset();
                 }
-
+                console.log(response);
             })
     }
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/booking`)
+            .then(res => res.json())
+            .then(data => setBooking(data))
+    }, [])
+
     return (
-        <div className="m-5 mb-5" >
-            <div className="row g-4">
-                <div className=" col-md-4 col-sm-12">
-                    <h1>User Information</h1>
-                    <Form>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control type="name" value={user?.displayName} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>Email</Form.Label>
-                            <Form.Control type="email" value={user?.email} rows={3} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>Package Name</Form.Label>
-                            <Form.Control type="name" rows={3} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>Total Guest</Form.Label>
-                            <Form.Control type="number" rows={3} />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>Select Your date</Form.Label>
-                            <Form.Control type="date" rows={3} />
-                        </Form.Group>
-                    </Form>
+        <div className="mt-5 container-fluid">
+            <div className="row">
+                <div className="col-md-8  col-sm-12">
+                    <div className="booking">
+                        <h1>Confirm Your Booking</h1>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <input className="fw-bold" {...register("name", { required: true, maxLength: 20 })} placeholder=" Package Name" />
+                            <textarea className="fw-bold" {...register("description", { required: true })} placeholder=" Package Description" />
+                            <input className="fw-bold" type="number" {...register("cost", { required: true })} placeholder=" Total Cost" />
+                            <input className="fw-bold" {...register("img", { required: true })} placeholder=" Image Url " />
+                            <input className="bg-warning px-3 py-2 border-0 fw-bold fs-4" type="submit" />
+                        </form>
+                    </div>
                 </div>
-                <div className=" col-md-8 col-sm-12">
-                    <h2>My Tour packag </h2>
+                <div className="col-md-4 col-sm-12">
+                    <h1>My Booking</h1>
                     {
-                        tours.map(tour =>
-                            <div className="container-fluide bg-light" key={tour._id}>
-                                <div className="d-felx">
-
-
-                                    <Card.Body>
-                                        <Card.Title><small>Package Name: </small>{tour.name}</Card.Title>
-                                        <Card.Footer>
-                                            <div>
-                                                <button onClick={() => handleDelete(tour._id)} >Delete ❌</button >
-                                                <button className="bg-success ms-2 text-white  " >Update ✔ </button>
-                                            </div>
-                                        </Card.Footer>
-
-                                    </Card.Body>
-
-                                </div>
-                            </div>
-
-                        )
+                        booking.map(book => <div><h4>Name:{book.name}</h4></div>)
                     }
                 </div>
             </div>

@@ -18,6 +18,11 @@ const Header = () => {
                                 <Nav.Link as={Link} to="/managetour">My Booking</Nav.Link> :
                                 ''
                         }
+                        {
+                            user?.email ?
+                                <Nav.Link as={Link} to="/allbooking">All Booking</Nav.Link> :
+                                ''
+                        }
                         <Nav.Link as={Link} to="/addpackage">Add Package</Nav.Link>
                         {
                             user?.email ?

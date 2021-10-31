@@ -11,6 +11,7 @@ import AuthProvider from './Context/AuthProvider';
 import ManageTour from './Component/ManageTour/ManageTour';
 import AddPackage from './Component/AddPackage/AddPackage';
 import NotFound from './Component/NotFound/NotFound';
+import AllBooking from './Component/ManageAllBooking/AllBooking';
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/managetour">
               <ManageTour></ManageTour>
+            </PrivateRoute>
+            <PrivateRoute path="/allbooking">
+              <AllBooking></AllBooking>
             </PrivateRoute>
             <Route path="/addpackage">
               <AddPackage></AddPackage>
