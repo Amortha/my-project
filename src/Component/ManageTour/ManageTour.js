@@ -17,7 +17,7 @@ const ManageTour = () => {
         axios.post('https://evening-headland-28717.herokuapp.com/orders', data)
             .then(response => {
                 if (response.data.insertedId) {
-                    alert('You have');
+                    alert('You have confirmed your package. Plz reload this page');
                     reset();
                 }
                 console.log(response);
@@ -37,7 +37,7 @@ const ManageTour = () => {
                     <div className="booking">
                         <h1>Confirm Your Booking</h1>
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input className="fw-bold" {...register("name", { required: true, maxLength: 20 })} placeholder=" Package Name" />
+                            <input className="fw-bold" {...register("name", { required: true, maxLength: 20 })} placeholder=" Package Name (same as shown in ui)" />
                             <textarea className="fw-bold" {...register("description", { required: true })} placeholder=" Package Description" />
                             <input className="fw-bold" type="number" {...register("cost", { required: true })} placeholder=" Total Cost" />
                             <input className="fw-bold" {...register("img", { required: true })} placeholder=" Image Url " />
@@ -48,7 +48,7 @@ const ManageTour = () => {
                 <div className="col-md-4 col-sm-12">
                     <h1>My Booking</h1>
                     {
-                        booking.map(book => <div><h4>Name:{book.name}</h4></div>)
+                        booking.map(book => <div><h4>Package Name:{book.name}</h4></div>)
                     }
                 </div>
             </div>
