@@ -7,7 +7,7 @@ const ExoticPlace = () => {
     const [places, setPlaces] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/exotic')
+        fetch('https://evening-headland-28717.herokuapp.com/exotic')
             .then(res => res.json())
             .then(data => {
                 setPlaces(data)

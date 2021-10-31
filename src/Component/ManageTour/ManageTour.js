@@ -7,13 +7,13 @@ const ManageTour = () => {
     const [tours, setTours] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch(`https://evening-headland-28717.herokuapp.com/services`)
             .then(res => res.json())
             .then(data => setTours(data))
     }, []);
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/services/${id}`;
+        const url = `https://evening-headland-28717.herokuapp.com/services/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -75,18 +75,10 @@ const ManageTour = () => {
 
                                     </Card.Body>
 
-
-                                    {/* <div>
-                                <h2> <small>Package Name: </small>{tour.name}</h2>
-                            </div>
-                            <div>
-                                <button onClick={() => handleDelete(tour._id)} >Delete ❌</button >
-                                <button className="bg-success ms-2 text-white  " >Update ✔ </button>
-                            </div> */}
-
-
                                 </div>
-                            </div>)
+                            </div>
+
+                        )
                     }
                 </div>
             </div>

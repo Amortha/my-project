@@ -13,12 +13,12 @@ const Header = () => {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/addpackage">Add Package</Nav.Link>
                         {
                             user?.email ?
                                 <Nav.Link as={Link} to="/managetour">My Booking</Nav.Link> :
                                 ''
                         }
+                        <Nav.Link as={Link} to="/addpackage">Add Package</Nav.Link>
                         {
                             user?.email ?
                                 <button onClick={logOut} className="btn btn-primary">Logout</button> :

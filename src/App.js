@@ -28,9 +28,9 @@ function App() {
             <PrivateRoute path="/placeorder/:id">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
-            <Route path="/managetour">
+            <PrivateRoute path="/managetour">
               <ManageTour></ManageTour>
-            </Route>
+            </PrivateRoute>
             <Route path="/addpackage">
               <AddPackage></AddPackage>
             </Route>

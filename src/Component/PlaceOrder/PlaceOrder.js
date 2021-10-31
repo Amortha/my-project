@@ -9,7 +9,7 @@ const PlaceOrder = () => {
     const [details, setDetails] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://evening-headland-28717.herokuapp.com/services/${id}`)
             .then(res => res.json())
             .then(data => setDetails(data))
     }, [])
