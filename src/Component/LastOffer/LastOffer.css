@@ -1,0 +1,51 @@
+
+.card img {
+    width: 100%;
+    
+}
+.layer {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: .5s;
+}
+.layer:hover {
+    background: rgba(216, 182, 182, 0.7);
+}
+.layer h1 {
+    width: 100%;
+    font-weight: 500;
+    color: rgb(247, 239, 239);
+    font-size: 35px;
+    bottom: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    position: absolute;
+    opacity: 0;
+    transition:all .5s ease-in;
+
+}
+.layer:hover h1{
+    bottom: 50%;
+    opacity: 1;
+}
+.layer h5 {
+    width: 100%;
+    font-weight: 500;
+    color: rgb(31, 28, 28);
+    font-size: 26px;
+    bottom: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    position: absolute;
+    opacity: 0;
+    transition:all .5s ease-in;
+
+}
+.layer:hover h5{
+    bottom: 30%;
+    opacity: 1;
+}
