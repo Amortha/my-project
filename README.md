@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 site name is ghurbo
-u can visit the world with ghurbo
+u can visit the world with
  
  => you can book awesome package
  => u can move workdwide with us
